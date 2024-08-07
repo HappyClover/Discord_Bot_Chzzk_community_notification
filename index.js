@@ -162,6 +162,8 @@ client.on("messageCreate", async (message) => {
 const job = schedule.scheduleJob('0 * * * * *', async function () {
     const notiJson = JSON.parse(fs.readFileSync("./notification.json", "utf8"));
 
+    console.log(notiJson);
+
     notiJson.map(async (item,i) => {
         const channel = client.channels.fetch(item.channel);
 

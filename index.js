@@ -94,10 +94,12 @@ client.on("messageCreate", async (message) => {
                 break;
 
             case "!등록":
-                const isAlreadyRegit = notiJson[index].list.findIndex(e => e.id == msg_array[1]);
-                if (isAlreadyRegit !== -1) {
-                    message.channel.send("해당 채널에 이미 등록된 스트리머 입니다.");
-                    break;
+                if (index > -1) {
+                    const isAlreadyRegit = notiJson[index].list.findIndex(e => e.id == msg_array[1]);
+                    if (isAlreadyRegit !== -1) {
+                        message.channel.send("해당 채널에 이미 등록된 스트리머 입니다.");
+                        break;
+                    }
                 }
 
                 const communityInfo = await getCommunityRecentlyInfo(msg_array[1]);

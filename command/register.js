@@ -111,7 +111,7 @@ register.delete = async (channel, streamerId) => {
     //스트리머 인덱스값 확인
     if (streamerIndex == -1) {
         channel.send("등록 되지 않은 스트리머 아이디값입니다.\n" +
-            "등록된 스트리머를 확인할려면 '/리스트'를 입력해주세요.");
+        "등록된 스트리머를 확인할려면 '!리스트'를 입력해주세요.");
         return;
     }
 
@@ -124,7 +124,7 @@ register.delete = async (channel, streamerId) => {
     } catch(err) {
         console.log(err);
         channel.send("등록에 실패했습니다.\n개발자 찐빠일 가능성이 높으니 개발자에게 문의하세요." +
-            "에러코드 : register_File_93" +
+            "에러코드 : register_File_127" +
             `메세지 : ${err}`);
     }
 }

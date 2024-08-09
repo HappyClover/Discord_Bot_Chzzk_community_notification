@@ -64,7 +64,7 @@ register.import = async (channel, streamerId) => {
         })
     } else {
         notiJson.push(  {
-            "channel":channel.channelId,
+            "channel":channel.id,
             "list":[
                 {
                     "id": streamerId,

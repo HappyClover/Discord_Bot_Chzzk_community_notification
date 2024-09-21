@@ -1,13 +1,32 @@
 # 치지직 커뮤니티 디스코드 알림봇
 
 ## 기본적인 작동 방식
-매 0초마다 채널별로 등록되어 있는 스트리머 아이디 값을 기준으로
+매분 0초마다 채널별로 등록되어 있는 스트리머 아이디 값을 기준으로
 
 커뮤니티 최근 글을 끌어와서 최근에 등록된 커뮤니티 id값과 마지막으로 확인된 id값을 비교하여
 
 달라졌으면 알림을 주는 방식입니다.
 
+그래서 운좋으면 곧바로 알림이 오지만 타이밍이 안맞으면 1분가량 늦을 수 있습니다.
+
 ---
+## 봇 설치 URL
+
+https://discord.com/oauth2/authorize?client_id=1270305545932509266
+
+---
+
+## 이용 방법
+위 봇 설치 URL에서 서버에 봇을 초대하신 후
+
+알림을 줬으면 하는 채널에 봇 명령어를 입력하시면 됩니다.
+
+사람이 여러명인 서버일때 사람을 구분하여 명령어를 처리하지 않기 때문에 
+
+사람이 많은 서버에서 여러명이 다룰 때 주의 해주세요.
+
+---
+
 ## 스트리머 ID값
 스트리머 치지직 id값을 확인 합니다.
 
@@ -20,10 +39,6 @@ https://chzzk.naver.com/1234/
 일때
 
 **1234** 가 스트리머 ID값이 됩니다.
-
-봇 설치 URL
-
-https://discord.com/oauth2/authorize?client_id=1270305545932509266
 
 ---
 
@@ -56,6 +71,14 @@ https://discord.com/oauth2/authorize?client_id=1270305545932509266
 
 ---
 
+## 버그 제보 및 의견 제안
+
+이메일 : rlathdgus1@gmail.com
+
+제목에 [치지직봇] 이라고 앞에 적어주시면 확인하는데 도움이 됩니다.
+
+---
+
 ## 라이센스
-아이콘으로 사용한 벨
-https://www.flaticon.com/kr/free-icon/bell_17042034?term=bell&page=2&position=41&origin=search&related_id=17042034
+아이콘으로 사용한 벨 : https://www.flaticon.com/kr/free-icon/bell_17042034?term=bell&page=2&position=41&origin=search&related_id=17042034
+

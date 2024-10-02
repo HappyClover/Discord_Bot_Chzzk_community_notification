@@ -16,7 +16,7 @@
 ---
 ## 봇 설치 URL
 
-https://discord.com/oauth2/authorize?client_id=1270305545932509266
+https://discord.com/application-directory/1270305545932509266
 
 ---
 
@@ -77,7 +77,7 @@ https://chzzk.naver.com/1234/
 
 ## 버그 제보 및 의견 제안
 
-이메일 : rlathdgus1@gmail.com
+이메일 : luckyclover@cloverstudio.xyz
 
 제목에 [치지직봇] 이라고 앞에 적어주시면 확인하는데 도움이 됩니다.
 
@@ -86,3 +86,11 @@ https://chzzk.naver.com/1234/
 ## 라이센스
 아이콘으로 사용한 벨 : https://www.flaticon.com/kr/free-icon/bell_17042034?term=bell&page=2&position=41&origin=search&related_id=17042034
 
+---
+
+## 봇 이용역관
+https://dicobot.cloverstudio.xyz/terms/service
+
+치지직 커뮤니티 알림봇은 디스코드 개인 고유 ID값 등 개인을 구별할 수 있는 값을 수집하지 않습니다.
+
+단, 채널에 알림을 주기 위해서 채널 고유 ID값을 수집하며, 수집하는 정보는 언젠가 업데이트 시 변할 수 있습니다.

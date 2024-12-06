@@ -98,7 +98,7 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
 
             switch (e.rawError.code) {
                 case 10003:
-                    console.log(`${e.rawError.message} : 알수 없는 채널 인식으로 ${notiJson[i].channel} 채널 값 삭제`);
+                    util.importLog(`${e.rawError.message} : 알수 없는 채널 인식으로 ${notiJson[i].channel} 채널 값 삭제`);
                     notiJson.splice(i,1);
                     util.updateNotificationFile(notiJson);
                     await wait(10);

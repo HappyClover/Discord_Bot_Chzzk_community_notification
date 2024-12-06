@@ -68,34 +68,37 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
 
         try {
             channel = await client.channels.fetch(item.channel);
+            console.log(item.list);
+
+            item.list.map(async (listItem,j) => {
+
+                let contents = await util.getCommunityRecentlyInfo(listItem.id);
+
+                if (listItem.recentId < contents.communityId){
+                    const exampleEmbed = new EmbedBuilder()
+                        .setColor(0x0099FF)
+                        .setTitle(contents.name)
+                        .setURL(`https://chzzk.naver.com/${listItem.id}/community/detail/${contents.communityId}`)
+                        .setDescription(contents.contents)
+                        .setThumbnail(contents.profile)
+                        .setImage(contents.img)
+                        .setTimestamp()
+
+                    await channel.send({ embeds: [exampleEmbed] });
+
+                    notiJson[i].list[j].recentId = contents.communityId;
+
+                    util.updateNotificationFile(notiJson);
+
+                    await wait(10);
+                }
+            })
         } catch (e){
             console.log("채널 정보 가져오기 에러 : ", e);
+
+
         }
 
-        console.log(item.list);
-
-        item.list.map(async (listItem,j) => {
-            let contents = await util.getCommunityRecentlyInfo(listItem.id);
-
-            if (listItem.recentId < contents.communityId){
-                const exampleEmbed = new EmbedBuilder()
-                    .setColor(0x0099FF)
-                    .setTitle(contents.name)
-                    .setURL(`https://chzzk.naver.com/${listItem.id}/community/detail/${contents.communityId}`)
-                    .setDescription(contents.contents)
-                    .setThumbnail(contents.profile)
-                    .setImage(contents.img)
-                    .setTimestamp()
-
-                await channel.send({ embeds: [exampleEmbed] });
-
-                notiJson[i].list[j].recentId = contents.communityId;
-
-                util.updateNotificationFile(notiJson);
-
-                await wait(10);
-            }
-        })
     })
 });
 

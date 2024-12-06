@@ -94,7 +94,17 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
                 }
             })
         } catch (e){
-            console.log("채널 정보 가져오기 에러 : ", e.rawError);
+            console.log("메세지 전송 에러 발생 : ", e.rawError);
+
+            switch (e.rawError.code) {
+                case 10003:
+                    console.log(`${e.rawError.message} : 알수 없는 채널 인식으로 ${notiJson.channel} 채널 값 삭제`);
+                    notiJson.splice(i,1);
+                    util.updateNotificationFile(notiJson);
+                    await wait(10);
+
+                    break;
+            }
 
 
         }

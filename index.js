@@ -64,7 +64,14 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
     const notiJson = util.getNotificationFile();
 
     notiJson.map(async (item,i) => {
-        const channel = await client.channels.fetch(item.channel);
+        let channel = null;
+
+        try {
+            channel = await client.channels.fetch(item.channel);
+        } catch (e){
+            console.log("채널 정보 가져오기 에러 : ", e);
+        }
+
         console.log(item.list);
 
         item.list.map(async (listItem,j) => {
@@ -80,14 +87,11 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
                     .setImage(contents.img)
                     .setTimestamp()
 
-                try {
-                    let result = await channel.send({ embeds: [exampleEmbed] });
-                    notiJson[i].list[j].recentId = contents.communityId;
-                    util.updateNotificationFile(notiJson);
-                } catch (e){
-                    console.log(e);
-                }
+                await channel.send({ embeds: [exampleEmbed] });
 
+                notiJson[i].list[j].recentId = contents.communityId;
+
+                util.updateNotificationFile(notiJson);
 
                 await wait(10);
             }

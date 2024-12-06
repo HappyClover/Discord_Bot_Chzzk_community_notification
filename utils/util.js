@@ -52,7 +52,6 @@ utilItem.importLog = function (content) {
 
     // 로그 폴더 경로와 파일 경로
     const logDir = path.join(__dirname, 'log');
-    console.log("로그파일 경로 : ",logDir);
     const logFilePath = path.join(logDir, fileName);
 
     // 로그 내용 포맷 (현재 시간 + 메시지)

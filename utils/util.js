@@ -1,4 +1,6 @@
 const fs = require("fs");
+const path = require('path');
+
 const utilItem = {};
 
 utilItem.getCommunityRecentlyInfo = async function (streamerId) {
@@ -38,6 +40,31 @@ utilItem.updateNotificationFile = function (json) {
         console.log(err);
         return false;
     }
+}
+
+utilItem.importLog = function (content) {
+    // 현재 날짜 정보 가져오기
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const fileName = `${year}-${month}-${day}.log`;
+
+    // 로그 폴더 경로와 파일 경로
+    const logDir = path.join(__dirname, 'log');
+    const logFilePath = path.join(logDir, fileName);
+
+    // 로그 내용 포맷 (현재 시간 + 메시지)
+    const timestamp = now.toISOString();
+    const logMessage = `[${timestamp}] ${content}\n`;
+
+    // 로그 폴더가 없으면 생성
+    if (!fs.existsSync(logDir)) {
+        fs.mkdirSync(logDir, { recursive: true });
+    }
+
+    // 파일에 로그 추가
+    fs.appendFileSync(logFilePath, logMessage, 'utf8');
 }
 
 module.exports = utilItem;

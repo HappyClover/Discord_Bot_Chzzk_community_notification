@@ -94,7 +94,7 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
                 }
             })
         } catch (e){
-            console.log("채널 정보 가져오기 에러 : ", e);
+            console.log("채널 정보 가져오기 에러 : ", e.rawError);
 
 
         }

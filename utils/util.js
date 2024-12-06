@@ -56,7 +56,7 @@ utilItem.importLog = function (content) {
     const logFilePath = path.join(logDir, fileName);
 
     // 로그 내용 포맷 (현재 시간 + 메시지)
-    const timestamp = now.toISOString();
+    const timestamp = now.toLocaleTimeString();
     const logMessage = `[${timestamp}] ${content}\n`;
 
     // 로그 폴더가 없으면 생성

@@ -90,6 +90,8 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
 
                     util.updateNotificationFile(notiJson);
 
+                    util.importLog(`${item.channel} 채널에게 ${contents.name} 스트리머의 커뮤니티 알림 전송 성공`);
+
                     await wait(10);
                 }
             })
@@ -103,6 +105,10 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
                     util.updateNotificationFile(notiJson);
                     await wait(10);
 
+                    break;
+
+                default:
+                    util.importLog(`${e.rawError.message} : 에러코드 ${e.rawError.code}`);
                     break;
             }
 

@@ -80,11 +80,14 @@ const job = schedule.scheduleJob('0 * * * * *', async function () {
                     .setImage(contents.img)
                     .setTimestamp()
 
-                await channel.send({ embeds: [exampleEmbed] });
+                try {
+                    let result = await channel.send({ embeds: [exampleEmbed] });
+                    notiJson[i].list[j].recentId = contents.communityId;
+                    util.updateNotificationFile(notiJson);
+                } catch (e){
+                    console.log(e);
+                }
 
-                notiJson[i].list[j].recentId = contents.communityId;
-
-                util.updateNotificationFile(notiJson);
 
                 await wait(10);
             }
